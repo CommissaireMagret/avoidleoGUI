@@ -13,14 +13,17 @@ class Example(QWidget):
 
     def initUI(self):
 
-        qbtn = QPushButton('Quit', self)
-        qbtn.clicked.connect(QApplication.instance().quit)
-        qbtn.resize(qbtn.sizeHint())
-        qbtn.move(50, 50)
+        self.buttonss()
 
         self.setGeometry(300, 300, 350, 250)
         self.setWindowTitle('Quit button')
         self.show()
+
+    def buttonss(self):
+        qbtn = QPushButton('Quit', self)
+        qbtn.clicked.connect(QApplication.instance().quit)
+        qbtn.resize(qbtn.sizeHint())
+        qbtn.move(50, 50)
 
 
 def main():

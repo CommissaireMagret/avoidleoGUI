@@ -1,15 +1,5 @@
 #!/usr/bin/python
 
-"""
-ZetCode PyQt6 tutorial
-
-This program centers a window
-on the screen.
-
-Author: Jan Bodnar
-Website: zetcode.com
-"""
-
 import sys
 from PyQt6.QtWidgets import QWidget, QApplication
 
@@ -39,7 +29,6 @@ class Example(QWidget):
 
 
 def main():
-
     app = QApplication(sys.argv)
     ex = Example()
     sys.exit(app.exec())
