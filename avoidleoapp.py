@@ -68,7 +68,7 @@ class AvoidLeoWindow(QMainWindow):
         layout0 = QVBoxLayout()
         layout1 = QHBoxLayout()
 
-        params = self.genparams()
+        self.genparams()
         self.buttons()
 
         for w in widgets0:
