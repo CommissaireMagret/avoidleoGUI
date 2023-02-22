@@ -29,7 +29,7 @@ parser.add_argument("time_start", nargs="?",
 parsed_args = parser.parse_args()
 
 
-def genlst():
+def genlst(num_seq, duration_seq, num_cren, file="default",
+           time_start=datetime.datetime.fromtimestamp(time_now + 5 * 60).strftime(date_time_format)):
     # Execution de la fonction pour l'écriture d'un .lst en évitant les LEO.
-    avoidleo.writelst(parsed_args.num_seq, parsed_args.duration_seq, parsed_args.num_cren, parsed_args.file,
-                      parsed_args.time_start, file_path, qth)
+    avoidleo.writelst(num_seq, duration_seq, num_cren, file, time_start, file_path, qth)
