@@ -96,7 +96,8 @@ class Example(QMainWindow):
         widgets1.append(besim_button)
 
     def lstgen(self):
-        lstgen.genlst(self.num_seq, duration_seq, num_cren, file="default",time_start)
+        # lstgen.genlst(self.num_seq, duration_seq, num_cren, file="default",time_start)
+        pass
     def besimgen(self):
         print("besim!")
 
