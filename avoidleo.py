@@ -186,7 +186,7 @@ def create_slots(num_slots, duration_seq, time_start):
             slots.append((timestamp, timestamp_end))
             i += 1
             slot += (int(duration_s / 1800) + 1) * 1800
-            print(slot)
+            # print(slot)
         else:
             slot += 1800
     j = 0
