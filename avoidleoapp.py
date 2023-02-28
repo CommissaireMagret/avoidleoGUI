@@ -124,7 +124,7 @@ class AvoidLeoWindow(QMainWindow):
         num_seq = QLineEdit("6940", self)
         seq_label = QLabel("Binary sequence name or number (ex: 6940, etc.):", self)
         duration_seq = QSpinBox()
-        duration_seq.setMaximum(20)
+        duration_seq.setMaximum(200)
         duration_seq.setMinimum(1)
         duration_seq.setValue(12)
         duration_label = QLabel("Duration of the sequence in minutes:", self)

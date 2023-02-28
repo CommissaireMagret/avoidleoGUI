@@ -166,6 +166,7 @@ def create_slots(num_slots, duration_seq, time_start):
     global passages_txt
     time_start_epoch = timegm(time.strptime(time_start, date_time_format))
     duration_s = duration_seq * 60
+    print(duration_s)
     passes = predict_passes(time_start_epoch)
     # Take the first slot available depending on the current time. Slots must be on the hour or 1/2 hour
     # i.e. 00:00 or 00:30
@@ -184,7 +185,10 @@ def create_slots(num_slots, duration_seq, time_start):
             timestamp_end = datetime.datetime.fromtimestamp(slot + duration_s)
             slots.append((timestamp, timestamp_end))
             i += 1
-        slot += 1800
+            slot += (int(duration_s / 1800) + 1) * 1800
+            print(slot)
+        else:
+            slot += 1800
     j = 0
     while passes[j][0] < slots[len(slots) - 1][1].timestamp():
         passages_txt += datetime.datetime.fromtimestamp(passes[j][0]).strftime("\n%d/%m/%Y %H:%M:%S => ") + \
