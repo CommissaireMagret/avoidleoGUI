@@ -113,7 +113,7 @@ def predict_passes(time_start_epoch):
     p3 = predict.transits(tle3, qth, time_start_epoch, time_end_epoch)
     p4 = predict.transits(tle4, qth, time_start_epoch, time_end_epoch)
     p5 = predict.transits(tle5, qth, time_start_epoch, time_end_epoch)
-    print(predict.quick_predict(tle5, time_start_epoch, qth))
+    # print(predict.quick_predict(tle5, time_start_epoch, qth))
 
     timing = []
     # Goes through each prediction object of the LEO sats, extract and store the timings of the passes :
