@@ -113,6 +113,7 @@ def predict_passes(time_start_epoch):
     p3 = predict.transits(tle3, qth, time_start_epoch, time_end_epoch)
     p4 = predict.transits(tle4, qth, time_start_epoch, time_end_epoch)
     p5 = predict.transits(tle5, qth, time_start_epoch, time_end_epoch)
+    print(predict.quick_predict(tle5, time_start_epoch, qth))
 
     timing = []
     # Goes through each prediction object of the LEO sats, extract and store the timings of the passes :
@@ -166,7 +167,6 @@ def create_slots(num_slots, duration_seq, time_start):
     global passages_txt
     time_start_epoch = timegm(time.strptime(time_start, date_time_format))
     duration_s = duration_seq * 60
-    print(duration_s)
     passes = predict_passes(time_start_epoch)
     # Take the first slot available depending on the current time. Slots must be on the hour or 1/2 hour
     # i.e. 00:00 or 00:30
