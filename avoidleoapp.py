@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys
-from PyQt6.QtCore import QDate, QTime, QDateTime, Qt
+from PyQt6.QtCore import QDate, QTime, QDateTime, Qt       # It is possible to switch to Qt5 without errors
 from PyQt6.QtWidgets import (
     QWidget,
     QMessageBox,
