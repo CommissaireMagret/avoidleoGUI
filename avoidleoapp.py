@@ -41,6 +41,7 @@ def lst():
     time_start = datetime.datetime.fromtimestamp(time_start_value).strftime(date_time_format)
     output_file_value = widgets0[7].text()
     gen_simu_files.genlst(num_seq_value, duration_seq_value, num_slots_value, time_start, output_file_value)
+    #gen_simu_files.genlst(6940, 12, 40, "09/03/2023-16:20:00", "default_test")
 
 
 def besim():
