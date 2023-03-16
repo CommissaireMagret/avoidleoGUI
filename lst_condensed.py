@@ -30,4 +30,4 @@ parsed_args = parser.parse_args()
 
 if __name__ == '__main__':
     # Execution de la fonction pour l'écriture d'un .lst en évitant les LEO.
-    avoidleo.writelst(parsed_args.num_seq, parsed_args.duration_seq, parsed_args.num_cren, parsed_args.file, parsed_args.time_start, file_path, qth)
+    avoidleo_pile.writelst(parsed_args.num_seq, parsed_args.duration_seq, parsed_args.num_cren, parsed_args.file, parsed_args.time_start, file_path, qth)
