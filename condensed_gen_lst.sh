@@ -1,4 +1,4 @@
-#!/bin/sh
+gen_lst.sh#!/bin/sh
 
 echo ""
 echo " Utilisation ligne de commande : "
@@ -65,46 +65,5 @@ else
         d_t_lst=$5
 fi
 
-if [ -z "$6" ]
-then
-	read -p "Espacer les séquences de 30 minutes ? (O/N, O par défaut) :" esp
-        esp_lst=$esp
-        if [ -z "$esp" ]
-        then
-                d_t_lst="O"
-	fi
-else
-        esp_lst=$6
-fi
+python3 lst.py $num $dur $seqs $file_lst $d_t_lst
 
-if [ -z "$7" ]
-then
-	read -p "Incrémenter les numéros des séquences dans le .lst ? (O/N, N par défaut) :" incr
-        incr_lst=$incr
-        if [ -z "$incr" ]
-        then
-                incr_lst="N"
-	fi
-else
-        incr_lst=$7
-fi
-
-if [ "$incr_lst" = "O" ] || [ "$incr_lst" = "o" ]
-then
-  incr_lst=1
-
-elif [ "$incr_lst" = "N" ] || [ "$incr_lst" = "n" ]
-then
-  incr_lst=0
-else
-  incr_lst=0
-  echo "Pas compris, répondu N par défaut"
-fi
-
-if [ "$esp_lst" = "O" ] || [ "$esp_lst" = "o" ]
-then
-  python3 lst.py $num $dur $seqs $file_lst $d_t_lst $incr_lst
-elif [ "$esp_lst" = "N" ] || [ "$esp_lst" = "n" ]
-then
-  python3 lst_condensed.py $num $dur $seqs $file_lst $d_t_lst $incr_lst
-fi

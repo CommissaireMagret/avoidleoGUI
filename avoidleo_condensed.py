@@ -170,7 +170,7 @@ def create_slots(num_slots, duration_seq, time_start):
     passes = predict_passes(time_start_epoch)
     # Take the first slot available depending on the current time. Slots must be on the hour or 1/2 hour
     # i.e. 00:00 or 00:30
-    slot = time_start_epoch # (int(local_to_utc(time_start_epoch) / 1800) + 1) * 1800
+    slot = time_start_epoch  # (int(local_to_utc(time_start_epoch) / 1800) + 1) * 1800
     slots = []
     i = 0
     while i < num_slots:
@@ -185,7 +185,7 @@ def create_slots(num_slots, duration_seq, time_start):
             timestamp_end = datetime.datetime.fromtimestamp(slot + duration_s)
             slots.append((timestamp, timestamp_end))
             i += 1
-            slot += duration_s + 60 #(int(duration_s / 1800) + 1) * 1800
+            slot += duration_s + 60  # (int(duration_s / 1800) + 1) * 1800
             # print(slot)
         else:
             slot += 60
@@ -199,9 +199,10 @@ def create_slots(num_slots, duration_seq, time_start):
     return slots
 
 
-def writelst(num_seq, duration_seq, num_cren, file, time_start, file_path, qth_):
+def writelst(file_path, qth_, num_seq, duration_seq, num_cren, file, time_start, incr):
     """Writes the slots in a lst  file using above functions
 
+    :param incr:
     :param num_seq: str = name of the binary sequence without the ".bin" extension
     :param duration_seq: int = duration of the sequence to emit (rounded up)
     :param num_cren: int = number of slots desired
@@ -214,11 +215,18 @@ def writelst(num_seq, duration_seq, num_cren, file, time_start, file_path, qth_)
     qth = qth_
     slots = create_slots(num_cren, duration_seq, time_start)
     lst = ""
-    for i in range(len(slots)):
-        date = slots[i][0].strftime("%Y%m%d")
-        hour = slots[i][0].strftime("%H%M%S000")
-        str_date_h = str(i + 1) + "," + date + '-' + hour + "," + file_path + str(num_seq) + ".bin,1"
-        lst += str_date_h + "\n"
+    if incr:
+        for i in range(len(slots)):
+            date = slots[i][0].strftime("%Y%m%d")
+            hour = slots[i][0].strftime("%H%M%S000")
+            str_date_h = str(i + 1) + "," + date + '-' + hour + "," + file_path + str(int(num_seq) + i) + ".bin,1"
+            lst += str_date_h + "\n"
+    else:
+        for i in range(len(slots)):
+            date = slots[i][0].strftime("%Y%m%d")
+            hour = slots[i][0].strftime("%H%M%S000")
+            str_date_h = str(i + 1) + "," + date + '-' + hour + "," + file_path + num_seq + ".bin,1"
+            lst += str_date_h + "\n"
     print(lst)
     print(str(len(slots)) + ' slots créés ---> LST/' + file + '.lst')
     print()
