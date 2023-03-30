@@ -1,6 +1,4 @@
-#!/bin/bash
-
-pip install pypredict
+#!/bin/sh
 
 echo ""
 echo " Utilisation ligne de commande : "
@@ -25,7 +23,7 @@ then
 	dur=$d
         if [ -z "$d" ]
         then
-                dur="30"
+                dur="12"
 	fi
 else
         dur=$2
@@ -37,7 +35,7 @@ then
         seqs=$s
         if [ -z "$s" ]
         then
-                seqs="200"
+                seqs="69"
 	fi
 else
         seqs=$3
@@ -49,7 +47,7 @@ then
         file_lst=$file
         if [ -z "$file" ]
         then
-                file_lst="default.lst"
+                file_lst=`date +"%Y%m%d_"`${num}
 	fi
 else
         file_lst=$4
@@ -57,7 +55,7 @@ fi
 
 if [ -z "$5" ]
 then
-	read -p "Date et heure locale de départ (pas UTC) (dd/mm/YYYY-HH:MM:SS) :" d_t
+	read -p "Date et heure UTC de départ (dd/mm/YYYY-HH:MM:SS) :" d_t
         d_t_lst=$d_t
         if [ -z "$d_t" ]
         then
