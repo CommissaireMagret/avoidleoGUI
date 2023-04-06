@@ -3,6 +3,7 @@ import argparse
 import datetime
 import time
 
+import avoidleo_NOAA19
 import avoidleo_condensed
 
 # Variables pour mettre en forme le temps.
@@ -31,4 +32,4 @@ parsed_args = parser.parse_args()
 
 if __name__ == '__main__':
     # Execution de la fonction pour l'écriture d'un .lst en évitant les LEO.
-    avoidleo_condensed.writelst(file_path, qth, parsed_args.num_seq, parsed_args.duration_seq, parsed_args.num_cren, parsed_args.file, parsed_args.time_start, parsed_args.incr)
+    avoidleo_NOAA19.writelst(file_path, qth, parsed_args.num_seq, parsed_args.duration_seq, parsed_args.num_cren, parsed_args.file, parsed_args.time_start, parsed_args.incr)
